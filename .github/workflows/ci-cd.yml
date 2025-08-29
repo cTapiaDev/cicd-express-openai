@@ -1,0 +1,30 @@
+name: CI/CD para API Inteligente
+
+on:
+    push:
+        branches: [ "main" ] # Se activa cuando los cambios son en la rama main.
+
+jobs:
+    ci_job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout del repositorio
+              uses: actions/checkout@v3
+
+            - name: Configurar Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 18
+
+            - name: Instalar dependencias
+              run: npm install
+
+            - name: Construir la aplicación
+              run: npm run lint
+
+    cd_job:
+        needs: ci_job # Depende de que el primer job termine, para poder comenzar.
+        runs-on: ubuntu-latest
+        steps:
+            - name: Disparar hook para desplegar el render.
+              run: curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK_URL }}

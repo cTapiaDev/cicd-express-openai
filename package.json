@@ -1,0 +1,32 @@
+{
+  "name": "cicd-express-openai",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "jest",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cTapiaDev/cicd-express-openai.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/cTapiaDev/cicd-express-openai/issues"
+  },
+  "homepage": "https://github.com/cTapiaDev/cicd-express-openai#readme",
+  "dependencies": {
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "openai": "^5.16.0"
+  },
+  "devDependencies": {
+    "eslint": "^9.34.0",
+    "jest": "^30.1.1"
+  }
+}
